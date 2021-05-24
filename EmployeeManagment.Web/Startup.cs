@@ -29,6 +29,8 @@ namespace EmployeeManagment.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication("Identity.Application")
+        .AddCookie();
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddAutoMapper(typeof(EmployeeProfile));
@@ -60,6 +62,8 @@ namespace EmployeeManagment.Web
                 app.UseStaticFiles();
 
                 app.UseRouting();
+            app.UseAuthorization();
+            app.UseAuthentication();
 
                 app.UseEndpoints(endpoints =>
                 {
