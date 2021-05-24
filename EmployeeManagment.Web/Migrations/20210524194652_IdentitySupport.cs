@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EmployeeManagment.Web.Migrations
 {
-    public partial class AddIdentitySupport : Migration
+    public partial class IdentitySupport : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
