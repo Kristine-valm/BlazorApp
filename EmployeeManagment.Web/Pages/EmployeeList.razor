@@ -1,5 +1,9 @@
 ﻿@page "/"
 @inherits EmployeeManagement.Web.Pages.EmployeeListBase
+
+@attribute [Authorize]
+@*Rest of the component code*@
+
 <h3>Selected Employees Count -  @SelectedEmployeesCount</h3>
 
 <input type="checkbox" id="showFooter" @bind="ShowFooter" />
@@ -11,12 +15,12 @@
 }
 else
 {
-<div class="card-deck">
-    @foreach (var employee in Employees)
-    {
-        <DisplayEmployee Employee="employee" ShowFooter="ShowFooter"
-                         OnEmployeeSelection="EmployeeSelectionChanged"
-                         OnEmployeeDeleted="EmployeeDeleted"></DisplayEmployee>
-    }
-</div>
+    <div class="card-deck">
+        @foreach (var employee in Employees)
+        {
+            <DisplayEmployee Employee="employee" ShowFooter="ShowFooter"
+                             OnEmployeeSelection="EmployeeSelectionChanged"
+                             OnEmployeeDeleted="EmployeeDeleted"></DisplayEmployee>
+        }
+    </div>
 }
